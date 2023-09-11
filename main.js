@@ -13,12 +13,18 @@ pageHead.style.color = 'green';
 
 var items = document.getElementsByClassName('list-group-item');
 
-for(var i=0; i<items.length;i++){
-    items[i].style.fontWeight = 'bold';
-}
+// for(var i=0; i<items.length;i++){
+//     items[i].style.fontWeight = 'bold';
+// }
 
 items[2].style.backgroundColor = 'green';
 
 // console.log(items[2].style);
 
-console.log(items);
+
+var listTag = document.getElementsByTagName('li');
+console.log(listTag);
+
+for(var i=0; i<listTag.length;i++){
+    listTag[i].style.fontWeight = 'bold';
+}
