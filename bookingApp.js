@@ -13,7 +13,11 @@ function submitMethod(e){
     var userCount = localStorage.length+1;
 
     if(username.length!=0 && useremail.length!=0){
-        localStorage.setItem('userdetails'+userCount, username+" "+useremail);
+        let obj = {
+            name : username,
+            email : useremail
+        };
+        localStorage.setItem('userdetails'+userCount, JSON.stringify(obj));
         alert('user added');
     }
     else{
@@ -29,10 +33,10 @@ document.addEventListener('DOMContentLoaded', refreshUserDetails);
 
 function refreshUserDetails(e){
     for(var i=0; i<localStorage.length; i++){
-        var userdetails = localStorage.getItem(localStorage.key(i));
+        var userdetails = JSON.parse(localStorage.getItem(localStorage.key(i)));
 
         var li = document.createElement('li');
-        li.appendChild(document.createTextNode(userdetails));
+        li.appendChild(document.createTextNode(userdetails.name+"  "+userdetails.email));
         document.getElementById("users").appendChild(li);
 
         document.getElementById('username').value = '';
